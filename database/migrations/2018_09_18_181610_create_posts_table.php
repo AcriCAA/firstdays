@@ -18,7 +18,8 @@ class CreatePostsTable extends Migration
             $table->timestamps();
             $table->integer('pee'); 
             $table->integer('poop'); 
-            $table->string('timelogged'); 
+            $table->string('timelogged');
+            $table->string('user_id');  
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post; 
+use App\Auth; 
 use Carbon\Carbon;
 
 use DateTimeZone; 
@@ -20,9 +21,11 @@ class PostController extends Controller
     //
     public function index(){
 
-
+    	$id = \Auth::user()->id; 
    	//db call to get all the rows in the tasks table using Eloquent model
-		$posts = Post::all(); 
+		$posts = Post::where('user_id', $id)->latest()->get();
+
+
 		// echo '<pre>';
 		// var_dump($posts); 
 		// echo '</pre>';
@@ -93,6 +96,7 @@ class PostController extends Controller
 
 		$dt = Carbon::now(new DateTimeZone('America/New_York'));
 		$post->timelogged = $dt->toDayDateTimeString();
+		$post->user_id = \Auth::user()->id; 
 
 		// var_dump($post); 
 		$post->save(); 

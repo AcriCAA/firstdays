@@ -18,7 +18,7 @@
 
 
 
-
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -29,4 +29,3 @@ Route::post('/store', 'PostController@store');
 
 Route::get('/{post}', 'PostController@show');
 
-Auth::routes();
