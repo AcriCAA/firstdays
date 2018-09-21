@@ -43,13 +43,21 @@ class PostController extends Controller
 		->where('pee','>',0)
 
 
-		->selectRaw('day(convert_tz(created_at, "+00:00", "-04:00")) day, monthname(convert_tz(created_at, "+00:00", "-04:00"))month, count(*) pee')
+		->selectRaw('
+			day(timelogged_timestamp) day, 
+			monthname(timelogged_timestamp) month, 
+			count(*) pee'
+		)
 		->groupBy('day','month')
 		->get();
 
 		$poopcounts = Post::where('user_id',$id)
 		->where('poop','>',0)
-		->selectRaw('day(convert_tz(created_at, "+00:00", "-04:00")) day, monthname(convert_tz(created_at, "+00:00", "-04:00"))month, count(*) poop')
+		->selectRaw('
+			day(timelogged_timestamp) day, 
+			monthname(timelogged_timestamp) month, 
+			count(*) poop'
+		)
 		->groupBy('day','month')
 		->get();
 
@@ -110,24 +118,31 @@ class PostController extends Controller
 	
 
 	$datestring = strtotime($date_from_form); 
+	$timelogged_timestamp_string = Carbon::parse($date_from_form);
 	// $time = strtotime($time); 
 
-	// $date = $day + $time; 
-	$date = date('D, M d, Y g:i A', $datestring);
+	// $date = $day + $time;
+	//converting the datestring to the format of timelogged  
+	$timelogged = date('D, M d, Y g:i A', $datestring);
 
-	$timelogged = $date; 
+	$timelogged_timestamp = Carbon::parse($date_from_form, 'UTC');
 
+	$post->pee = $pee; 
+	$post->poop = $poop; 
+	$post->timelogged = $timelogged; 
+	$post->timelogged_timestamp = $timelogged_timestamp; 
+	$post->save(); 
 
 	// $pee = request('pee'); 
 	// $poop = request('poop'); 
 
-	$result = compact('timelogged', 'pee', 'poop'); 
+	// $result = compact('timelogged', 'timelogged_timestamp', 'pee', 'poop'); 
 
-	// return $date; 
-	// return $result; 
-	// return $timelogged; 
+	// // return $date; 
+	// // return $result; 
+	// // return $timelogged; 
 
-	$post->update($result); 
+	// $post->update($result); 
 	// );
 
 		// $post->update(request()->validate([
@@ -204,8 +219,9 @@ class PostController extends Controller
 		// 	$post->poop = 0; 
 
 		$dt = Carbon::now(new DateTimeZone('America/New_York'));
-		$post->timelogged = $dt->toDayDateTimeString();
 		$post->user_id = \Auth::user()->id; 
+		$post->timelogged = $dt->toDayDateTimeString();
+		$post->timelogged_timestamp = $dt; 
 
 		// var_dump($post); 
 		$post->save(); 
