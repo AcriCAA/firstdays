@@ -53,6 +53,11 @@ class PostController extends Controller
 	public function update(Post $post){
 
 
+		$this->validate(request(), [
+//edit these to coressponding user fields
+			'datetime' => 'date_format:Y-m-d g:i a'
+
+		]);
 
 		if(request('pee') == 'on'){
 			$pee = 1; 
