@@ -1,6 +1,6 @@
 @extends('layout')
 
-EDIT BLADE
+
 @section('content')
 
 <style>
@@ -61,10 +61,10 @@ input[type="checkbox"]{
       
 
         {{-- Have to convert from string to unix using strtotime and then to SQL time --}}
-        <input type="datetime-local" id="datetime" name="datetime"
+        <input type="datetime" id="datetime" name="datetime"
                value="{{date("Y-m-d g:i a", strtotime($post->timelogged))}}"
 
-               min="2018-01-01" max="2018-12-31"	
+               min="2018-01-01" max="2200-12-31"	
                required />
  
     </div>
@@ -78,11 +78,11 @@ input[type="checkbox"]{
 	 <p class="small">pee?</p>
 {{-- <div class="btn-group-toggle" data-toggle="buttons"> --}}
 @if($post->pee == 1)
-	  <label class="btn btn-primary">
+	  <label class="btn btn-secondary">
     <input type="checkbox" name="pee" id="pee" checked="checked"  autocomplete="off"><i class="fas fa-3x fa-oil-can"></i>
   </label>
 @else
-  <label class="btn btn-primary">
+  <label class="btn btn-secondary">
     <input type="checkbox" name="pee" id="pee" autocomplete="off"><i class="fas fa-3x fa-oil-can"></i>
   </label>
 @endif
@@ -101,11 +101,11 @@ input[type="checkbox"]{
   <p class="small">poop?</p>
 {{--   <div class="btn-group-toggle" data-toggle="buttons2"> --}}
 @if($post->poop == 1)
-<label class="btn btn-primary">
+<label class="btn btn-secondary">
     <input type="checkbox" name="poop" id="poop" checked="checked" autocomplete="off"><i class="fas fa-3x fa-poop"></i>
   </label>
 @else
-  <label class="btn btn-primary">
+  <label class="btn btn-secondary">
     <input type="checkbox" name="poop" id="poop" autocomplete="off"><i class="fas fa-3x fa-poop"></i>
   </label>
 @endif
