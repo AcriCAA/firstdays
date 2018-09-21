@@ -34,6 +34,32 @@ class PostController extends Controller
 
 	}
 
+
+		public function counts(){
+
+		$id = \Auth::user()->id; 
+   	//db call to get all the rows in the tasks table using Eloquent model
+		$peecounts = Post::where('user_id',$id)
+		->where('pee','>',0)
+		->selectRaw('day(created_at) day, monthname(created_at)month, count(*) pee')
+		->groupBy('day','month')
+		->get();
+
+		$poopcounts = Post::where('user_id',$id)
+		->where('poop','>',0)
+		->selectRaw('day(created_at) day, monthname(created_at)month, count(*) poop')
+		->groupBy('day','month')
+		->get();
+
+
+		// echo '<pre>';
+		// var_dump($posts); 
+		// echo '</pre>';
+		return view('posts.counts', compact('peecounts', 'poopcounts'));  
+
+
+	}
+
 	public function show(Post $post){ 
 
 
@@ -55,7 +81,7 @@ class PostController extends Controller
 
 		$this->validate(request(), [
 //edit these to coressponding user fields
-			'datetime' => 'date_format:Y-m-d g:i a'
+			'datetime' => 'date_format:Y-m-d g:i A'
 
 		]);
 
@@ -85,7 +111,7 @@ class PostController extends Controller
 	// $time = strtotime($time); 
 
 	// $date = $day + $time; 
-	$date = date('D, M d, Y g:i a', $datestring);
+	$date = date('D, M d, Y g:i A', $datestring);
 
 	$timelogged = $date; 
 

@@ -25,11 +25,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'PostController@index');
 Route::get('/create', 'PostController@create');
+
+Route::get('/counts', 'PostController@counts');
 Route::post('/store', 'PostController@store');
+
+
 
 Route::get('/{post}', 'PostController@show');
 
 Route::patch('/{post}', 'PostController@update'); 
+
+
 
 Route::get('/edit/{post}', 'PostController@edit');
 

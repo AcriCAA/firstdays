@@ -62,7 +62,7 @@ input[type="checkbox"]{
 
         {{-- Have to convert from string to unix using strtotime and then to SQL time --}}
         <input type="datetime" id="datetime" name="datetime"
-               value="{{date("Y-m-d g:i a", strtotime($post->timelogged))}}"
+               value="{{date("Y-m-d g:i A", strtotime($post->timelogged))}}"
 
                min="2018-01-01" max="2200-12-31"	
                required />

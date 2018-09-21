@@ -6,9 +6,7 @@
 
  <div class="col px-3 border">
  	{{-- <div class="row pt-1"> --}}
- 	<div class="float-sm-right float-md-right float-lg-right float-xl-right">
- 		<a href="/edit/{{$post->id}}"><button class="m-4 btn btn-primary btn-sm">Edit</button></a>
- 	</div>
+
  	{{-- </div> --}}
  	<h2 class="mt-2 text-center">{{$post->timelogged}}</h2>
  	
@@ -33,7 +31,9 @@
 	    	@endif
 		</div>
 	</div>
-	
+	 	<div class="float-right">
+ 		<a href="/edit/{{$post->id}}"><button class="m-4 btn btn-light btn-sm">Edit</button></a>
+ 	</div>
   
 </div>
 </div>
