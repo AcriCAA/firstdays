@@ -41,13 +41,15 @@ class PostController extends Controller
    	//db call to get all the rows in the tasks table using Eloquent model
 		$peecounts = Post::where('user_id',$id)
 		->where('pee','>',0)
-		->selectRaw('day(created_at) day, monthname(created_at)month, count(*) pee')
+
+
+		->selectRaw('day(convert_tz(created_at, "+00:00", "-04:00")) day, monthname(convert_tz(created_at, "+00:00", "-04:00"))month, count(*) pee')
 		->groupBy('day','month')
 		->get();
 
 		$poopcounts = Post::where('user_id',$id)
 		->where('poop','>',0)
-		->selectRaw('day(created_at) day, monthname(created_at)month, count(*) poop')
+		->selectRaw('day(convert_tz(created_at, "+00:00", "-04:00")) day, monthname(convert_tz(created_at, "+00:00", "-04:00"))month, count(*) poop')
 		->groupBy('day','month')
 		->get();
 
