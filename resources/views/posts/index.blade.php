@@ -6,7 +6,9 @@
 
 
 @foreach($posts as $post)
+
          @include('posts.post')
+
 @endforeach
 
 <div class="row mt-5">

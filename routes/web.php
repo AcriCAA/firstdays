@@ -29,3 +29,7 @@ Route::post('/store', 'PostController@store');
 
 Route::get('/{post}', 'PostController@show');
 
+Route::patch('/{post}', 'PostController@update'); 
+
+Route::get('/edit/{post}', 'PostController@edit');
+

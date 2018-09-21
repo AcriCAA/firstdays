@@ -1,17 +1,11 @@
-{{-- @extends('layout')
+@extends('layout')
 
 @section('content')
- --}}
+
 <div class="row mt-3">
 
  <div class="col px-3 border">
- 	{{-- <div class="row pt-1"> --}}
- 	<div class="float-sm-right float-md-right float-lg-right float-xl-right">
- 		<a href="/edit/{{$post->id}}"><button class="m-4 btn btn-primary btn-sm">Edit</button></a>
- 	</div>
- 	{{-- </div> --}}
  	<h2 class="mt-2 text-center">{{$post->timelogged}}</h2>
- 	
  	<div class="row pt-1">
 	  	<div class="col">
 	  		@if($post->pee == 1)
@@ -33,9 +27,8 @@
 	    	@endif
 		</div>
 	</div>
-	
   
 </div>
 </div>
 
-{{-- @endsection --}}
+@endsection

@@ -14,14 +14,14 @@ use DateTimeZone;
 class PostController extends Controller
 {
 
-	 public function __construct()
-    {
-        $this->middleware('auth');
-    }
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
     //
-    public function index(){
+	public function index(){
 
-    	$id = \Auth::user()->id; 
+		$id = \Auth::user()->id; 
    	//db call to get all the rows in the tasks table using Eloquent model
 		$posts = Post::where('user_id', $id)->latest()->get();
 
@@ -29,30 +29,106 @@ class PostController extends Controller
 		// echo '<pre>';
 		// var_dump($posts); 
 		// echo '</pre>';
-	return view('posts.index', compact('posts')); 
+		return view('posts.index', compact('posts')); 
 
-
-    }
-
-   public function show(Post $post){ 
-
-
-		return view('posts.post', compact('post'));
 
 	}
 
-  public function create(){
-
-  	return view('posts.create'); 
-  }
+	public function show(Post $post){ 
 
 
-  	public function store()
+		return view('posts.postsingle', compact('post'));
+
+	}
+
+	public function edit(Post $post)
+	{	
+    
+   // Load user/createOrUpdate.blade.php view
+    return view('posts.edit', compact('post'));
+
+	}
+
+
+	public function update(Post $post){
+
+
+
+		if(request('pee') == 'on'){
+			$pee = 1; 
+
+		}
+		else 
+			$pee = 0; 
+
+
+		if(request('poop') == 'on' ){
+
+			$poop = 1; 
+		}
+		else 
+			$poop = 0; 
+
+
+
+	$date_from_form = request('datetime'); 
+	// $day = request('day'); 
+
+	
+
+	$datestring = strtotime($date_from_form); 
+	// $time = strtotime($time); 
+
+	// $date = $day + $time; 
+	$date = date('D, M d, Y g:i a', $datestring);
+
+	$timelogged = $date; 
+
+
+	// $pee = request('pee'); 
+	// $poop = request('poop'); 
+
+	$result = compact('timelogged', 'pee', 'poop'); 
+
+	// return $date; 
+	// return $result; 
+	// return $timelogged; 
+
+	$post->update($result); 
+	// );
+
+		// $post->update(request()->validate([
+
+		// 	'timelogged' =>'required',
+
+		// 	'poop' => 'required', 
+			
+		// 	//must have at the front be a number and be 11 digits
+		// 	'pee' => 'required'
+
+		// ]));
+
+		// return $post; 
+
+
+	
+	return redirect('/');
+
+	}
+
+
+
+	public function create(){
+
+		return view('posts.create'); 
+	}
+
+
+	public function store()
 
 	{
 
-		
-
+	
 		//Creates a new post and requests the array passed in and saves it to the db
 		//IMPORTANT: BE EXPLICIT! only pass the fields you are comfortable submitted to the server
 		// Post::create(request(['poop','pee']));
