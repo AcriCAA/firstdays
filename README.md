@@ -1,0 +1,1 @@
+A simple Laravel app that tracks a baby's all important first days of diaper changing at the push of a button. 
