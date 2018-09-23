@@ -30,13 +30,20 @@
 
   <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">@foreach($peecounts as $pee)
  	<h2>{{$pee->month}} {{$pee->day}}</h2>
- 	<p>Pee: {{$pee->pee}}</p>
+ 	<p>
+ 	@for ($i = 0; $i < $pee->pee; $i++)
+    <i class="fas fa-2x fa-oil-can"></i>
+	@endfor
+ 	 <span class="badge badge-dark">{{$pee->pee}}</span>
+ 	</p>
  	@endforeach
  	</div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
   	@foreach($poopcounts as $poop)
  	<h2>{{$poop->month}} {{$poop->day}}</h2>
- 	<p>Poop: {{$poop->poop}}</p>
+ 	<p>@for ($i = 0; $i < $poop->poop; $i++)
+    <i class="fas fa-2x fa-poop"></i>
+	@endfor <span class="badge badge-dark">{{$poop->poop}}</span></p>
  	@endforeach
 
 </div>
