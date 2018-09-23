@@ -23,7 +23,7 @@ class PostController extends Controller
 
 		$id = \Auth::user()->id; 
    	//db call to get all the rows in the tasks table using Eloquent model
-		$posts = Post::where('user_id', $id)->latest()->get();
+		$posts = Post::where('user_id', $id)->orderBy('timelogged_timestamp', 'DESC')->get();
 
 
 		// echo '<pre>';
