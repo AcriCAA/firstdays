@@ -132,35 +132,8 @@ class PostController extends Controller
 	$post->timelogged = $timelogged; 
 	$post->timelogged_timestamp = $timelogged_timestamp; 
 	$post->save(); 
-
-	// $pee = request('pee'); 
-	// $poop = request('poop'); 
-
-	// $result = compact('timelogged', 'timelogged_timestamp', 'pee', 'poop'); 
-
-	// // return $date; 
-	// // return $result; 
-	// // return $timelogged; 
-
-	// $post->update($result); 
-	// );
-
-		// $post->update(request()->validate([
-
-		// 	'timelogged' =>'required',
-
-		// 	'poop' => 'required', 
-			
-		// 	//must have at the front be a number and be 11 digits
-		// 	'pee' => 'required'
-
-		// ]));
-
-		// return $post; 
-
-
 	
-	return redirect('/');
+	return redirect('/')->with('status', 'record updated');;
 
 	}
 
@@ -228,7 +201,7 @@ class PostController extends Controller
 		// // Save it to the database 
 
 		// // And then redirect to the homepage
-		return redirect('/');
+		return redirect('/')->with('status', 'record logged');
 
 	}
 

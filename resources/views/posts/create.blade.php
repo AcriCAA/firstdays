@@ -3,6 +3,14 @@
 
 @section('content')
 
+<style>
+  
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {
+color: #fff;
+background-color: #03308b;
+
+
+</style>
 
 
       <div class="container">
@@ -47,10 +55,10 @@
 <fieldset data-role="controlgroup" required>
 
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-info active">
+  <label class="btn btn-info">
     <input type="radio" name="pee" id="pee" value="1" autocomplete="off"> Yes
   </label>
-  <label class="btn btn-info">
+  <label class="btn btn-info active">
     <input type="radio" name="pee" id="pee" value="0" autocomplete="off"> No
   </label>
 
@@ -70,10 +78,10 @@
   <p class="small">poop?</p>
   <fieldset data-role="controlgroup1" required>
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-info active">
+      <label class="btn btn-info">
         <input type="radio" name="poop" id="poop" value="1" autocomplete="off"> Yes
       </label>
-      <label class="btn btn-info">
+      <label class="btn btn-info active">
         <input type="radio" name="poop" id="poop" value="0" autocomplete="off"> No
       </label>
 

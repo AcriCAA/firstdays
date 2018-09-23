@@ -24,21 +24,18 @@
 
 </div>
 
+@if (session('status'))
+    <div class="alert alert-success mt-2">
+        {{ session('status') }}
+    </div>
+@endif
+
 @foreach($posts as $post)
 
          @include('posts.post')
 
 @endforeach
 
-{{-- <div class="row mt-5">
-	<div class="col">
-		<p class="text-center">
-			<a class="btn btn-primary" href="/create">
-				<i class="btn btn-primary fas fa-3x fa-plus"></i>
-			</a>
-		</p>
-	</div>
-</div> --}}
 
 @endsection
 
