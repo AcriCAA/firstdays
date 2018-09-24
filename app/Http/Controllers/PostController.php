@@ -48,7 +48,6 @@ class PostController extends Controller
 			monthname(timelogged_timestamp) month, 
 			count(*) pee'
 		)
-		->orderBy('timelogged_timestamp', 'DESC')
 		->groupBy('day','month')
 		->get();
 
@@ -59,7 +58,6 @@ class PostController extends Controller
 			monthname(timelogged_timestamp) month, 
 			count(*) poop'
 		)
-		->orderBy('timelogged_timestamp', 'DESC')
 		->groupBy('day','month')
 		->get();
 
