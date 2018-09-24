@@ -49,6 +49,7 @@ class PostController extends Controller
 			count(*) pee'
 		)
 		->groupBy('day','month')
+		->orderBy('timelogged_timestamp', 'DESC')
 		->get();
 
 		$poopcounts = Post::where('user_id',$id)
@@ -59,6 +60,7 @@ class PostController extends Controller
 			count(*) poop'
 		)
 		->groupBy('day','month')
+		->orderBy('timelogged_timestamp', 'DESC')
 		->get();
 
 
