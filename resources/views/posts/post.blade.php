@@ -13,21 +13,21 @@
  	<div class="row pt-1">
 	  	<div class="col">
 	  		@if($post->pee == 1)
-	    	<p class="text-center"><i class="fas fa-3x fa-oil-can"></i></p>
-	    	<p class="text-center small">pee!</p>
+	    	<p class="text-center"><i class="fas fa-3x fa-swimmer"></i></p>
+	    	<p class="text-center small">swim!</p>
 	    	@else 
 	    		<p class="text-center"><i class="fas fa-3x fa-times"></i></p>
-	    		<p class="text-center small">(no pee)</p>
+	    		<p class="text-center small">(no swim)</p>
 	    	@endif
 
 		</div>
 		<div class="col">
 			@if ($post->poop == 1)
-	    	<p class="text-center"><i class="fas fa-3x fa-poo"></i></p>
-	    	<p class="text-center small">poop!</p>
+	    	<p class="text-center"><i class="fas fa-3x fa-circle"></i></p>
+	    	<p class="text-center small">run!</p>
 	    	@else 
 	    		<p class="text-center"><i class="fas fa-3x fa-times"></i></p>
-	    		<p class="text-center small">(no poop)</p>
+	    		<p class="text-center small">(no run)</p>
 	    	@endif
 		</div>
 	</div>

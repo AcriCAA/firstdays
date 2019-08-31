@@ -35,7 +35,7 @@ input[type="checkbox"]{
 
 	<div class="col-sm-8 blog-main">
 
-		<h1 class="text-center">Pee or Poop? </h1>
+		<h1 class="text-center">Swim or Run? </h1>
 
 		@if ($errors->any())
 		<div class="alert alert-danger">
@@ -84,14 +84,14 @@ input[type="checkbox"]{
 
 
 			<div class="form-group text-center">
-				<p class="small">pee?</p>
+				<p class="small">Swam?</p>
 				@if($post->pee == 1)
 				<label class="btn btn-secondary">
-					<input type="checkbox" name="pee" id="pee" checked="checked"  autocomplete="off"><i class="fas fa-3x fa-oil-can"></i>
+					<input type="checkbox" name="pee" id="pee" checked="checked"  autocomplete="off"><i class="fas fa-3x fa-swimmer"></i>
 				</label>
 				@else
 				<label class="btn btn-secondary">
-					<input type="checkbox" name="pee" id="pee" autocomplete="off"><i class="fas fa-3x fa-oil-can"></i>
+					<input type="checkbox" name="pee" id="pee" autocomplete="off"><i class="fas fa-3x fa-swimmer"></i>
 				</label>
 				@endif
 			</div>
@@ -106,15 +106,15 @@ input[type="checkbox"]{
 
 			<div class="form-group text-center">
 				
-				<p class="small">poop?</p>
+				<p class="small">Ran?</p>
 				{{--   <div class="btn-group-toggle" data-toggle="buttons2"> --}}
 					@if($post->poop == 1)
 					<label class="btn btn-secondary">
-						<input type="checkbox" name="poop" id="poop" checked="checked" autocomplete="off"><i class="fas fa-3x fa-poop"></i>
+						<input type="checkbox" name="poop" id="poop" checked="checked" autocomplete="off"><i class="fas fa-3x fa-circle"></i>
 					</label>
 					@else
 					<label class="btn btn-secondary">
-						<input type="checkbox" name="poop" id="poop" autocomplete="off"><i class="fas fa-3x fa-poop"></i>
+						<input type="checkbox" name="poop" id="poop" autocomplete="off"><i class="fas fa-3x fa-circle"></i>
 					</label>
 					@endif
 				</div>
