@@ -110,11 +110,11 @@ input[type="checkbox"]{
 				{{--   <div class="btn-group-toggle" data-toggle="buttons2"> --}}
 					@if($post->poop == 1)
 					<label class="btn btn-secondary">
-						<input type="checkbox" name="poop" id="poop" checked="checked" autocomplete="off"><i class="fas fa-3x fa-circle"></i>
+						<input type="checkbox" name="poop" id="poop" checked="checked" autocomplete="off"><i class="fas fa-3x fa-running"></i>
 					</label>
 					@else
 					<label class="btn btn-secondary">
-						<input type="checkbox" name="poop" id="poop" autocomplete="off"><i class="fas fa-3x fa-circle"></i>
+						<input type="checkbox" name="poop" id="poop" autocomplete="off"><i class="fas fa-3x fa-running"></i>
 					</label>
 					@endif
 				</div>

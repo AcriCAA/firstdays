@@ -23,7 +23,7 @@
     <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-3x fa-swimmer"></i><p class="small text-center">Swim</p></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-3x fa-circle"></i><p class="small text-center">Run</p></a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-3x fa-running"></i><p class="small text-center">Run</p></a>
   </li>
 </ul>
 <div class="tab-content mt-2" id="myTabContent">
@@ -42,7 +42,7 @@
   	@foreach($poopcounts as $poop)
  	<h2>{{$poop->month}} {{$poop->day}}</h2>
  	<p>@for ($i = 0; $i < $poop->poop; $i++)
-    <i class="fas fa-2x fa-circle"></i>
+    <i class="fas fa-2x fa-running"></i>
 	@endfor <span class="badge badge-dark">{{$poop->poop}}</span></p>
  	@endforeach
 

@@ -19,7 +19,7 @@
 		</div>
 		<div class="col">
 			@if ($post->poop == 1)
-	    	<p class="text-center"><i class="fas fa-3x fa-circle"></i></p>
+	    	<p class="text-center"><i class="fas fa-3x fa-running"></i></p>
 	    	<p class="text-center small">ran!</p>
 	    	@else 
 	    		<p class="text-center"><i class="fas fa-3x fa-times"></i></p>

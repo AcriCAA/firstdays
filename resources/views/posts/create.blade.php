@@ -74,7 +74,7 @@ background-color: #03308b;
 <hr>
 
 <div class="form-group text-center">
-  <p><i class="fas fa-3x fa-circle"></i></p>
+  <p><i class="fas fa-3x fa-running"></i></p>
   <p class="small">Run?</p>
   <fieldset data-role="controlgroup1" required>
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -94,7 +94,7 @@ background-color: #03308b;
   
 {{-- 
 <div class="form-group text-center">
-    <label for="poop"><i class="fas fa-3x fa-circle"></i></label>
+    <label for="poop"><i class="fas fa-3x fa-running"></i></label>
     <input type="checkbox" class="form-control form-control-lg" id="poop" name="poop"  >
 </div> --}}
 
