@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,28 +19,19 @@
 //     return view('posts.post');
 // });
 
-
-
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/', [PostController::class, 'index']);
+Route::get('/create', [PostController::class, 'create']);
 
-Route::get('/', 'PostController@index');
-Route::get('/create', 'PostController@create');
+Route::get('/counts', [PostController::class, 'counts']);
 
-Route::get('/counts', 'PostController@counts');
+Route::post('/store', [PostController::class, 'store']);
 
-Route::post('/store', 'PostController@store');
+Route::get('/{post}', [PostController::class, 'show']);
 
+Route::patch('/{post}', [PostController::class, 'update']);
 
-
-Route::get('/{post}', 'PostController@show');
-
-Route::patch('/{post}', 'PostController@update'); 
-
-
-
-Route::get('/edit/{post}', 'PostController@edit');
-
+Route::get('/edit/{post}', [PostController::class, 'edit']);

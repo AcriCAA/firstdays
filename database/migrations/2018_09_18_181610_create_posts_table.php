@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreatePostsTable extends Migration
 {
@@ -16,11 +16,11 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('pee'); 
-            $table->integer('poop'); 
+            $table->integer('pee');
+            $table->integer('poop');
             $table->string('timelogged');
             $table->datetime('timelogged_timestamp');
-            $table->string('user_id');  
+            $table->string('user_id');
         });
     }
 
