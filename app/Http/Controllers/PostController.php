@@ -40,7 +40,7 @@ class PostController extends Controller
 			monthname(timelogged_timestamp) month, 
 			count(*) pee'
         )
-        ->groupBy('day', 'month')
+        ->groupBy('month')
         ->get();
 
         $poopcounts = Post::where('user_id', $id)
@@ -50,7 +50,7 @@ class PostController extends Controller
 			monthname(timelogged_timestamp) month, 
 			count(*) poop'
         )
-        ->groupBy('day', 'month')
+        ->groupBy('month')
         ->get();
 
         // echo '<pre>';
